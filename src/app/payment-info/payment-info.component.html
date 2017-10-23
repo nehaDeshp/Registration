@@ -1,0 +1,137 @@
+<div class= "panel-header">
+    <h4>Payment Information</h4>
+</div>
+<div class="panel-body">
+  <form #myForm="ngForm">
+    <div class="form-group">
+        <div class = "row">
+                <input type = "checkbox" [(ngModel)] = "check" 
+                       name = "chk">
+                Company credit Card ?
+        </div>
+        <div class = "row">
+            <div class = "col-md-6 col-sm-12 col -xs-12">
+                Credit Card:
+                <select class = "form-control" name="card" #selectCard="ngModel" 
+                        [(ngModel)]="selectedCard" required> 
+                    <option *ngFor="let ct of creditCardType"> {{ct}} </option>
+                </select>
+                <div *ngIf="selectCard.invalid && selectCard.touched ">
+                    <label class="error"> Please enter a Credit Card Type. </label>
+                </div>
+            </div>
+            <div class = "col-md-6 col-sm-12 col -xs-12">
+                Card Holder Name : 
+                <input type ="text" class= "form-control" 
+                        name = "c_name" [(ngModel)]="cardholdername" #cn="ngModel">
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col-md-6 col-sm-12 col -xs-12">
+                Credit Card #
+                <input type ="text" class= "form-control" 
+                name = "c_no" [(ngModel)]="cardNo" #cno="ngModel" required
+                pattern="[0-9]{16}">
+                <div *ngIf="cno.invalid && cno.touched">
+                    <label class="error"> Please enter 16-Digit Credit Card Number. </label>
+                </div>
+            </div>
+            <div class = "col-md-6 col-sm-12 col -xs-12">
+                Security Code (CVV)
+                <input type ="text" class= "form-control" 
+                name = "sec" [(ngModel)]="cvv" #secode="ngModel" required
+                pattern = "[0-9]{3}">
+                <div *ngIf="secode.invalid && (secode.touched || secode.dirty) ">
+                    <label class="error"> Please enter CVV. </label>
+                </div>
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col-md-6 col-sm-12 col -xs-12">
+                Expiration Month
+                <select class = "form-control" name="month" #selectMon="ngModel" 
+                [(ngModel)]="selectedMonth" required> 
+                <option *ngFor="let mon of months"> {{mon.name}} </option>
+                </select>
+                <div *ngIf="selectMon.invalid && selectMon.touched ">
+                    <label class="error"> Please enter a Month. </label>
+                </div>
+            </div>
+            <div class = "col-md-6 col-sm-12 col -xs-12">
+                Expiration Year
+                <select class = "form-control" name="year" #selectYr="ngModel" 
+                [(ngModel)]="selectedYear" required> 
+                <option *ngFor="let mon of months"> {{mon.name}} </option>
+                </select>
+                <div *ngIf="selectYr.invalid && selectYr.touched ">
+                <label class="error"> Please enter a Year. </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">   
+            <div class = "col-md-6 col-sm-12 col -xs-12">
+                Billing Address1:
+                <input type ="text" class= "form-control" 
+                name = "add1" [(ngModel)]="address1" #addr1="ngModel" required>
+                <div *ngIf="addr1.invalid && (addr1.touched || addr1.dirty)">
+                    <label class="error"> Please enter Primary Address(Address1). </label>
+                </div>  
+            </div>
+            <div class = "col-md-6 col-sm-12 col -xs-12">
+                Billing Address2:
+                <input type ="text" class= "form-control" 
+                name = "add2" [(ngModel)]="address2" #addr2="ngModel">
+            </div>
+        </div>
+        <div class ="row">
+            <div class = "col-md-6 col-sm-12 col -xs-12">
+                Billing Address3:
+                <input type ="text" class= "form-control" 
+                name = "add3" [(ngModel)]="address3" #addr3="ngModel">
+            </div>
+            <div class = "col-md-6 col-sm-12 col -xs-12">
+                City:
+                <input type ="text" class= "form-control" 
+                name = "ct" [(ngModel)]="city" #cit="ngModel" required>
+                <div *ngIf="cit.invalid && (cit.touched || cit.dirty)">
+                    <label class="error"> Please enter City. </label>
+                </div> 
+            </div>
+        </div>
+        <div class= "row">
+            <div class = "col-md-6 col-sm-12 col -xs-12">
+                State:
+                <select class = "form-control" name="state" #selectState="ngModel" 
+                        [(ngModel)]="selectedState" required #st="ngModel">
+                    <option *ngFor="let state of states"> {{state}} </option>
+                </select>
+                <div *ngIf="st.invalid && st.touched ">
+                    <label class="error"> Please enter a State. </label>
+                </div>
+            </div>
+            <div class = "col-md-6 col-sm-12 col -xs-12">
+                Zipcode:
+                <input type ="text" class= "form-control" 
+                name = "z" [(ngModel)]="zip" #zp="ngModel">
+            </div>
+        </div> 
+        <div class = "row">
+            <div class = "col-md-6 col-sm-12 col -xs-12">
+                Authorized Person
+                <input type ="text" class= "form-control" 
+                name = "auth_per" [(ngModel)]="auth_per" #ap="ngModel">
+            </div>
+            <div class = "col-md-6 col-sm-12 col -xs-12">
+                Authorized Person Title
+                <input type ="text" class= "form-control" 
+                        name = "auth_per_tit" [(ngModel)]="aut_per_tit" #apt="ngModel">
+            </div>
+        </div>
+    </div>
+  </form>
+  <div class = "row">
+    <button class = "btn-dark" (click) = "savePaymentDetails()"> Save </button>  
+  </div>
+</div>
+
+      

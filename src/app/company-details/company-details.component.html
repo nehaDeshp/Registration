@@ -1,0 +1,111 @@
+<div class= "panel-header">
+    <h4>Company Information</h4>
+</div>
+<div class="panel-body">
+    <form #myForm="ngForm">
+        <div class="form-group">
+            <div class = "row">
+                <div class = "col-md-6 col-sm-12col xs-12">
+                    Company Name : 
+                    <input type ="text" class= "form-control" 
+                            name = "c_name" [(ngModel)]="companyname" #cn="ngModel" required>
+                    <div *ngIf="cn.invalid && (cn.touched || cn.dirty)">
+                        <label class="error"> Please enter company name. </label>
+                    </div>
+                </div>
+                <div class = "col-md-6 col-sm-12col xs-12">
+                    Doing Business As (d/b/a): 
+                    <input type ="text" class= "form-control" 
+                    name = "business_role" [(ngModel)]="dba" #b="ngModel"> 
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-md-6 col-sm-12col xs-12">
+                    FEIN (Tax ID):
+                    <input type ="text" class= "form-control" 
+                    name = "taxid" [(ngModel)]="tax_id" #tid="ngModel" required
+                    pattern = "[0-9]{2}\-[0-9]{8}">
+                    <div *ngIf="tid.invalid && (tid.touched || tid.dirty)"
+                         >
+                        <label class="error"> Please enter valid tax id in the Format(12-12345678). </label>
+                    </div>  
+                </div>
+                <div class = "col-md-6 col-sm-12col xs-12">
+                    Address1:
+                    <input type ="text" class= "form-control" 
+                    name = "add1" [(ngModel)]="address1" #addr1="ngModel" required>
+                    <div *ngIf="addr1.invalid && (addr1.touched || addr1.dirty)">
+                        <label class="error"> Please enter Primary Address(Address1). </label>
+                    </div>  
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-md-6 col-sm-12col xs-12">
+                    Address2:
+                    <input type ="text" class= "form-control" 
+                    name = "add2" [(ngModel)]="address2" #addr2="ngModel">
+                </div>
+                <div class = "col-md-6 col-sm-12col xs-12">
+                    Address3:
+                    <input type ="text" class= "form-control" 
+                    name = "add3" [(ngModel)]="address3" #addr3="ngModel">
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-md-6 col-sm-12col xs-12">
+                    City:
+                    <input type ="text" class= "form-control" 
+                    name = "ct" [(ngModel)]="city" #cit="ngModel" required>
+                    <div *ngIf="cit.invalid && (cit.touched || cit.dirty)">
+                        <label class="error"> Please enter City. </label>
+                    </div> 
+                </div>
+                <div class = "col-md-6 col-sm-12col xs-12">
+                    State:
+                    <select class = "form-control" name="state" #selectState="ngModel" 
+                            [(ngModel)]="selectedState" required #st="ngModel">
+                        <option *ngFor="let state of states"> {{state}} </option>
+                    </select>
+                    <div *ngIf="st.invalid && st.touched ">
+                        <label class="error"> Please enter a State. </label>
+                    </div> 
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-md-6 col-sm-12col xs-12">
+                    Zipcode:
+                    <input type ="text" class= "form-control" 
+                    name = "z" [(ngModel)]="zip" #zp="ngModel">
+                </div>
+                <div class = "col-md-6 col-sm-12col xs-12">
+                    Main Phone:
+                    <input type ="text" class= "form-control" 
+                    name = "cntct" [(ngModel)]="main_cnct" #contact="ngModel" required
+                    pattern="[0-9]{10}">
+                    <div *ngIf="contact.invalid && (contact.touched || contact.dirty)">
+                        <label class="error"> Please enter Contact(10-digit). </label>
+                    </div> 
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-md-6 col-sm-12col xs-12">
+                    Fax:
+                    <input type ="text" class= "form-control" 
+                    name = "fx" [(ngModel)]="fax_no" #fac="ngModel">
+                </div>
+                <div class = "col-md-6 col-sm-12col xs-12">
+                    Website:
+                    <input type ="text" class= "form-control" 
+                    name = "web" [(ngModel)]="website_name" #website="ngModel" required
+                    pattern = "[w]{3}\.[A-Za-z]*\.[a-z]{3}">
+                    <div *ngIf="website.invalid && (website.touched || website.dirty)">
+                        <label class="error"> Please enter valid website of the form (eg. www.sbc.gov) </label>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <button class = "btn-dark" (click) = "saveCompanyDetails()"> Save </button>  
+    </div>
+</div>

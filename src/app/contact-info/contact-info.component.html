@@ -1,0 +1,69 @@
+<div class= "panel-header">
+    <h4>Contact Information</h4>
+</div>
+<div class="panel-body">
+    <form #myForm="ngForm">
+        <div class="form-group">
+            <div class="row">
+                <div class = "col-md-6 col-sm-12 col xs-12">
+                    Name:
+                    <input type ="text" class= "form-control" 
+                    name = "n" [(ngModel)]="name" #nm="ngModel" required>
+                    <div *ngIf="nm.invalid && (nm.touched || nm.dirty)">
+                        <label class="error"> Please enter Name. </label>
+                    </div> 
+                </div>
+                <div class = "col-md-6 col-sm-12 col xs-12">
+                    Title:
+                    <input type ="text" class= "form-control" 
+                    name = "t" [(ngModel)]="title" #tit="ngModel" required>
+                    <div *ngIf="tit.invalid && (tit.touched || tit.dirty)">
+                        <label class="error"> Please enter Title. </label>
+                    </div> 
+                </div>
+            </div>
+            <div class="row">
+                <div class = "col-md-6 col-sm-12 col xs-12">
+                    Email:
+                    <input type ="text" class= "form-control" 
+                    name = "e" [(ngModel)]="email" #em="ngModel" required
+                    pattern="[A-Za-z.*!@#$%^&[0-9]*[@][a-z]*[.][a-z]{3}">
+                    <div *ngIf="em.invalid && (em.touched || em.dirty)">
+                        <label class="error"> Please enter valid email. (e.g. username.domain.col-md-6) </label>
+                    </div> 
+                </div>
+                <div class = "col-md-6 col-sm-12 col xs-12">
+                    Work Phone:
+                    <input type ="text" class= "form-control" 
+                    name = "n" [(ngModel)]="contact" #nm="ngModel" required>
+                    <div *ngIf="nm.invalid && (nm.touched || nm.dirty)">
+                        <label class="error"> Please enter Work Phone. </label>
+                    </div> 
+                </div>
+            </div>
+            <div class="row">
+                <div class = "col-md-6 col-sm-12 col xs-12">
+                    Mobile Phone:
+                    <input type ="text" class= "form-control" 
+                    name = "n" [(ngModel)]="cell" #nm="ngModel" required
+                    pattern="[0-9]{10}">
+                    <div *ngIf="nm.invalid && (nm.touched || nm.dirty)">
+                        <label class="error"> Please enter 10-digit contact number. </label>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <button class = "btn-dark" (click) = "saveContactDetails()"> Save </button>  
+    </div>
+</div>
+          
+
+          
+
+         
+
+         
+
+          

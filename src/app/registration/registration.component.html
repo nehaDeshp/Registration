@@ -1,0 +1,24 @@
+<div class = "container">
+    <nav>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link " routerLink='registration/company' role="tab"
+                    routerLinkActive="active">Company Information</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  routerLink='registration/contact' role="tab">Contact Information</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  routerLink='registration/payment' role="tab">Payment Information</a>
+            </li>
+        </ul>
+    </nav>
+
+        <!-- Tab panes -->
+    <div class="tab-content" >
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+
+
